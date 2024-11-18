@@ -189,26 +189,7 @@ class CSWINU_Net(nn.Module):
         return out
 
 
-# def count_param(model):
-#     param_count = 0
-#     for param in model.parameters():
-#         param_count += param.view(-1).size()[0]
-#     return param_count
-# if __name__ == '__main__':
-#     print('#### Test Case ###')
-#     from torch.autograd import Variable
-#     x = torch.rand(16,3,64,64)
-#     model = U_Net(3,1)
-#     param = count_param(model)
-#     y = model(x)
-#     print('Output shape:',y.shape)
-#     print('UNet++ totoal parameters: %.2fM (%d)'%(param/1e6,param))
-from thop import profile
-x = torch.rand(4,3,256,256)
-model=CSWINU_Net(3,1)
-flops, params = profile(model, (x,))
-print('flops: ', flops, 'params: ', params)
-print('flops: %.2f G, params: %.2f M' % (flops / 1000000000.0, params / 1000000.0))
+
 
 
 
